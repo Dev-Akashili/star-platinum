@@ -10,7 +10,7 @@ export default function VerifyEmail() {
         name="email"
         type="email"
       />
-      <FormButton name="Continue" type="button" />
+      <FormButton name="Continue" />
     </>
   );
 }

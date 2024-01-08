@@ -3,7 +3,7 @@
 import FormButton from "@/components/forms/FormButton";
 import FormInput from "@/components/forms/FormInput";
 import FormLayout from "@/components/forms/FormLayout";
-import { Box, Stack, Text } from "@chakra-ui/react";
+import { Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 import VerifyEmail from "../verify-email";
 import FormLink from "@/components/forms/FormLink";
