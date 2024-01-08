@@ -16,7 +16,7 @@ export default function FormInput({
   return (
     <FormControl isRequired={isRequired} m="10px 0px">
       <FormLabel>{label}</FormLabel>
-      <Input name={name} type={type} borderRadius="0px" />
+      <Input name={name} type={type} borderRadius="0px" border="solid black" />
     </FormControl>
   );
 }
