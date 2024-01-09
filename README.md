@@ -1,4 +1,4 @@
-# star-platinum
+# STAR PLATINUM
 
 This repository is a template for building full stack web applications with a Nextjs frontend and an ASP.NET backend web api that interacts with a postgreSQL database.
 
