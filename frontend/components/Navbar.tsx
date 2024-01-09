@@ -7,11 +7,11 @@ export default function Navbar() {
       <Flex m="auto 20px" alignItems="center" height="100%">
         <Link href="/">
           <Text fontSize="3xl" fontWeight="bold" color="white">
-            STAR PLATINUM
+            ****
           </Text>
         </Link>
         <Box ml="auto">
-          <Link href="auth/sign-in">
+          <Link href="/auth/sign-in">
             <Button
               color="white"
               variant="ghost"

@@ -11,9 +11,11 @@
   "dependencies": {
     "@chakra-ui/next-js": "^2.2.0",
     "@chakra-ui/react": "^2.8.2",
+    "@emailjs/browser": "^3.11.0",
     "@emotion/react": "^11.11.3",
     "@emotion/styled": "^11.11.0",
     "framer-motion": "^10.17.9",
+    "lucide-react": "^0.307.0",
     "next": "14.0.4",
     "react": "^18",
     "react-dom": "^18"

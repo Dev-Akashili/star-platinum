@@ -1,7 +1,8 @@
-import FormButton from "@/components/forms/FormButton";
-import FormInput from "@/components/forms/FormInput";
-import FormLayout from "@/components/forms/FormLayout";
-import FormLink from "@/components/forms/FormLink";
+import FormLayout, {
+  FormButton,
+  FormInput,
+  FormLink
+} from "@/components/forms/AuthForms";
 import { Box } from "@chakra-ui/react";
 
 export default function SignIn() {
@@ -14,10 +15,10 @@ export default function SignIn() {
         name="password"
         type="password"
       />
-      <FormLink name="Forgot password?" to="/auth/reset-password" />
+      <FormLink name="Forgot password?" to="/auth?page=reset-password" />
       <FormButton name="Sign In" />
       <Box textAlign="center" m="20px 0px 10px 0px">
-        <FormLink name="Register" to="/auth/register" />
+        <FormLink name="Register" to="/auth?page=register" />
       </Box>
     </FormLayout>
   );
