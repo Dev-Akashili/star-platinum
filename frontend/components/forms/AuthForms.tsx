@@ -5,9 +5,11 @@ import {
   FormControl,
   FormLabel,
   Input,
+  InputGroup,
+  InputRightElement,
   Text
 } from "@chakra-ui/react";
-import { AlertCircle } from "lucide-react";
+import { AlertCircle, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
 
 interface FormInputProps {
@@ -27,6 +29,47 @@ export function FormInput({ isRequired, label, name, type }: FormInputProps) {
         borderRadius="0px"
         border="1.5px solid black"
       />
+    </FormControl>
+  );
+}
+
+interface FormPasswordInputProps {
+  isRequired?: boolean;
+  label: string;
+  name: string;
+  show?: boolean;
+  setShow?: React.MouseEventHandler<HTMLButtonElement>;
+}
+
+export function FormPasswordInput({
+  isRequired,
+  label,
+  name,
+  show,
+  setShow
+}: FormPasswordInputProps) {
+  return (
+    <FormControl isRequired={isRequired} m="10px 0px">
+      <FormLabel>{label}</FormLabel>
+      <InputGroup>
+        <Input
+          name={name}
+          type={show ? "text" : "password"}
+          borderRadius="0px"
+          border="1.5px solid black"
+        />
+        <InputRightElement width="4.5rem">
+          <Button
+            backgroundColor="white"
+            border={0}
+            h="1.75rem"
+            size="sm"
+            onClick={setShow}
+          >
+            {show ? <EyeOff /> : <Eye />}
+          </Button>
+        </InputRightElement>
+      </InputGroup>
     </FormControl>
   );
 }

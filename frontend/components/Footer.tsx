@@ -5,7 +5,7 @@ export default function Footer() {
     <Box
       backgroundColor="black"
       width="100%"
-      minH="150px"
+      minH="100px"
       display="flex"
       alignItems="center"
       justifyContent="center"

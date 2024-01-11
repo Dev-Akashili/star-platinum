@@ -1,7 +1,18 @@
-import { FormButton, FormInput, FormLink } from "@/components/forms/AuthForms";
+"use client";
+import {
+  FormButton,
+  FormInput,
+  FormLink,
+  FormPasswordInput
+} from "@/components/forms/AuthForms";
 import { Stack, Text } from "@chakra-ui/react";
+import { useState } from "react";
 
 export default function Register() {
+  const [showPassword, setShowPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
+
   return (
     <>
       <FormInput
@@ -25,17 +36,19 @@ export default function Register() {
         />
       </Stack>
       <FormInput isRequired={true} label="Email" name="email" type="email" />
-      <FormInput
+      <FormPasswordInput
         isRequired={true}
         label="Password"
         name="password"
-        type="password"
+        show={showPassword}
+        setShow={() => setShowPassword(!showPassword)}
       />
-      <FormInput
+      <FormPasswordInput
         isRequired={true}
         label="Confirm Password"
         name="confirmPassword"
-        type="password"
+        show={showConfirmPassword}
+        setShow={() => setShowConfirmPassword(!showConfirmPassword)}
       />
       <FormButton name="Register" />
       <Stack

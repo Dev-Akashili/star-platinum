@@ -1,6 +1,16 @@
-import { FormButton, FormInput } from "@/components/forms/AuthForms";
+"use client";
+import {
+  FormButton,
+  FormInput,
+  FormPasswordInput
+} from "@/components/forms/AuthForms";
+import { useState } from "react";
 
 export default function ResetPassword() {
+  const [showNewPassword, setShowNewPassword] = useState<boolean>(false);
+  const [showConfirmPassword, setShowConfirmPassword] =
+    useState<boolean>(false);
+
   return (
     <>
       <FormInput
@@ -9,17 +19,19 @@ export default function ResetPassword() {
         name="code"
         type="text"
       />
-      <FormInput
+      <FormPasswordInput
         isRequired={true}
         label="New Password"
         name="password"
-        type="password"
+        show={showNewPassword}
+        setShow={() => setShowNewPassword(!showNewPassword)}
       />
-      <FormInput
+      <FormPasswordInput
         isRequired={true}
         label="Confirm Password"
         name="confirmPassword"
-        type="password"
+        show={showConfirmPassword}
+        setShow={() => setShowConfirmPassword(!showConfirmPassword)}
       />
       <FormButton name="Reset Passssword" />
     </>
