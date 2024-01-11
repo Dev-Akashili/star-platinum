@@ -6,7 +6,7 @@ import FormLayout, {
   FormInput,
   Error
 } from "@/components/forms/AuthForms";
-import { generateVerificationCode } from "@/utils";
+import { generateVerificationCode, getFormData } from "@/utils";
 import { Collapse, useToast } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 import { useSearchParams } from "next/navigation";
@@ -29,7 +29,7 @@ export default function Auth() {
     setShow(false);
     setIsLoading(true);
     const code = generateVerificationCode();
-    const email = new FormData(event.currentTarget).get("to_email");
+    const { email } = getFormData(event, ["email"]);
 
     // Send Email Verification Code
     emailjs.init(process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY);
@@ -82,7 +82,7 @@ export default function Auth() {
           <FormInput
             isRequired={true}
             label="Verify Email"
-            name="to_email"
+            name="email"
             type="email"
           />
           <FormButton name="Continue" isLoading={isLoading} />

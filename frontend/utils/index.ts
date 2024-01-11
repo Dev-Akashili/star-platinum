@@ -7,13 +7,11 @@ export const generateVerificationCode = () => {
   return code.join("");
 };
 
-interface getFormDataProps {
-  e: React.FormEvent<HTMLFormElement>;
-  params: string[];
-}
-
 // Function to extract form data
-export const getFormData = ({ e, params }: getFormDataProps) => {
+export const getFormData = (
+  e: React.FormEvent<HTMLFormElement>,
+  params: string[]
+) => {
   let data: Record<string, string | null> = {};
 
   for (let i = 0; i < params.length; i++) {
