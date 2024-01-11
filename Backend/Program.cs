@@ -1,8 +1,14 @@
 using Backend.Data;
+using Backend.Data.Entities.Identity;
+using Backend.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
+
+// MVC
+builder.Services
+    .AddControllersWithViews();
 
 // Add services to the container.
 // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
@@ -25,8 +31,13 @@ builder.Services
 builder.Services.AddAuthorization();
 
 // Activate Identity APIs
-builder.Services.AddIdentityApiEndpoints<IdentityUser>()
+builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
     .AddEntityFrameworkStores<ApplicationDbContext>();
+
+builder.Services.AddScoped<UserManager<ApplicationUser>>();
+
+// Register services
+builder.Services.AddTransient<UserProfileService>();
 
 var app = builder.Build();
 
@@ -42,10 +53,13 @@ app.UseStaticFiles();
 app.UseRouting();
 
 // Map Identity routes
-app.MapIdentityApi<IdentityUser>();
+app.MapGroup("/account").MapIdentityApi<ApplicationUser>();
 
 app.MapSwagger();
 
 app.MapFallbackToFile("index.html");
+
+// Endpoints
+app.MapControllers();
 
 app.Run();
