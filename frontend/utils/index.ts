@@ -6,3 +6,20 @@ export const generateVerificationCode = () => {
   }
   return code.join("");
 };
+
+interface getFormDataProps {
+  e: React.FormEvent<HTMLFormElement>;
+  params: string[];
+}
+
+// Function to extract form data
+export const getFormData = ({ e, params }: getFormDataProps) => {
+  let data: Record<string, string | null> = {};
+
+  for (let i = 0; i < params.length; i++) {
+    const val = new FormData(e.currentTarget).get(params[i]);
+    data[params[i]] = val !== null ? String(val) : null;
+  }
+
+  return data;
+};
