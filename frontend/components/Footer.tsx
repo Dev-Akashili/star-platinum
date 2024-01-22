@@ -11,7 +11,7 @@ export default function Footer() {
       justifyContent="center"
     >
       <Text color="#fff" as="b">
-        Made with 🤍 by Emeka Akashili © <span>{new Date().getFullYear()}</span>
+        {/* Made with 🤍 by Emeka Akashili © <span>{new Date().getFullYear()}</span> */}
       </Text>
     </Box>
   );

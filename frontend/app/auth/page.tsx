@@ -31,37 +31,40 @@ export default function Auth() {
     const code = generateVerificationCode();
     const { email } = getFormData(event, ["email"]);
 
+    // Get EmailJS credentials
+    const emailPublicKey = process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY;
+    const emailServiceIdd = process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID;
+    const emailTemplateId = process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID;
+
     // Send Email Verification Code
-    emailjs.init(process.env.NEXT_PUBLIC_EMAIL_PUBLIC_KEY);
-    emailjs
-      .send(
-        process.env.NEXT_PUBLIC_EMAIL_SERVICE_ID,
-        process.env.NEXT_PUBLIC_EMAIL_TEMPLATE_ID,
-        {
+    if (emailPublicKey && emailServiceIdd && emailTemplateId) {
+      emailjs.init(emailPublicKey);
+      emailjs
+        .send(emailServiceIdd, emailTemplateId, {
           email: email,
           message: code
-        }
-      )
-      .then(
-        (result) => {
-          if (result.text == "OK") {
-            toast({
-              position: "top",
-              status: "success",
-              title: "Email verification code sent",
-              duration: 3000,
-              isClosable: true
-            });
+        })
+        .then(
+          (result) => {
+            if (result.text == "OK") {
+              toast({
+                position: "top",
+                status: "success",
+                title: "Email verification code sent",
+                duration: 3000,
+                isClosable: true
+              });
+              setIsLoading(false);
+              setEmailVerified(true);
+            }
+          },
+          (error) => {
+            console.error(error);
             setIsLoading(false);
-            setEmailVerified(true);
+            setShow(true);
           }
-        },
-        (error) => {
-          console.error(error);
-          setIsLoading(false);
-          setShow(true);
-        }
-      );
+        );
+    }
   }
 
   return (
@@ -74,7 +77,7 @@ export default function Auth() {
           : ""
       }
     >
-      {!isEmailVerified ? (
+      {isEmailVerified ? (
         <form onSubmit={handleEmailVerification}>
           <Collapse in={show} animateOpacity>
             <FormAlert />

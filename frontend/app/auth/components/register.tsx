@@ -35,6 +35,7 @@ export default function Register() {
           type="text"
         />
       </Stack>
+      <FormInput isRequired={true} label="Site Name" name="site" type="text" />
       <FormInput isRequired={true} label="Email" name="email" type="email" />
       <FormPasswordInput
         isRequired={true}
