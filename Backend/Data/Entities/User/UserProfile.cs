@@ -1,7 +1,5 @@
-using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using Backend.Data.Entities.Identity;
-using Microsoft.EntityFrameworkCore.Metadata.Internal;
 
 namespace Backend.Data.Entities.User;
 
@@ -15,4 +13,5 @@ public class UserProfile
     [ForeignKey("User")] 
     public string UserId { get; set; } = string.Empty;
     public ApplicationUser User { get; set; } = null;
+    public List<Site> Sites { get; set; } = new();
 }

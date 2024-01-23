@@ -1,11 +1,45 @@
-import { Text } from "@chakra-ui/react";
+import { Box, Button, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 
 export default function Home() {
   return (
-    <>
-      <Text fontSize="5xl" fontWeight="bold.500" m="20px">
-        Welcome.
-      </Text>
-    </>
+    <Flex justifyContent="center" maxH="100vh" p="50px 150px" mt="30px">
+      <Stack mt="auto" gap={5} alignItems="center">
+        <Text
+          fontSize="6xl"
+          fontWeight="bold"
+          m="20px"
+          w="100%"
+          textAlign="center"
+        >
+          Star Platinum Auth/User Management
+        </Text>
+        <Text fontSize="xl" color="grey" textAlign="center">
+          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
+          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
+          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+          aliquip ex ea commodo consequat. Duis aute irure dolor in
+          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
+          pariatur.
+        </Text>
+        <HStack justifyContent="center" gap={5} mt="20px">
+          <Button
+            color="white"
+            bgColor="black"
+            size="lg"
+            _hover={{ bgColor: "white", color: "black", border: "2px solid" }}
+          >
+            Get Started
+          </Button>
+          <Button
+            border="2px solid"
+            size="lg"
+            bgColor="white"
+            _hover={{ bgColor: "black", color: "white" }}
+          >
+            Learn More
+          </Button>
+        </HStack>
+      </Stack>
+    </Flex>
   );
 }

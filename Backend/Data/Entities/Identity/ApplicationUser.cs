@@ -1,4 +1,3 @@
-using System.ComponentModel.DataAnnotations.Schema;
 using Backend.Data.Entities.User;
 using Microsoft.AspNetCore.Identity;
 

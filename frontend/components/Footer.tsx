@@ -10,8 +10,8 @@ export default function Footer() {
       alignItems="center"
       justifyContent="center"
     >
-      <Text color="#fff" as="b">
-        {/* Made with 🤍 by Emeka Akashili © <span>{new Date().getFullYear()}</span> */}
+      <Text color="grey" as="b" ml="35px">
+        Emeka Akashili © <span>{new Date().getFullYear()}</span>
       </Text>
     </Box>
   );
