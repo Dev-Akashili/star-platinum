@@ -11,15 +11,14 @@ export default function Home() {
           w="100%"
           textAlign="center"
         >
-          Star Platinum Auth/User Management
+          Star Platinum Auth & User Management
         </Text>
         <Text fontSize="xl" color="grey" textAlign="center">
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-          eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad
-          minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-          aliquip ex ea commodo consequat. Duis aute irure dolor in
-          reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla
-          pariatur.
+          An open source software product that streamlines user authentication,
+          authorization, and management for developers. Built as a solution to
+          the hassle of building custom auth systems, by providing intuitive API
+          endpoints and a user-friendly interface which simplifies integration
+          and empowers you to focus on your core application.
         </Text>
         <HStack justifyContent="center" gap={5} mt="20px">
           <Button
