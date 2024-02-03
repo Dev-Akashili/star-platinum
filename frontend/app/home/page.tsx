@@ -1,41 +1,15 @@
 import { text } from "@/data";
-import { Button, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import { Metadata } from "next";
-import Link from "next/link";
+import HomeCard, { HomeButton } from "./components";
 
 export const metadata: Metadata = {
   title: "Star Platinum Auth"
 };
 
-interface HomeButtonsProps {
-  name: string;
-  link: string;
-  category: "positive" | "negative";
-}
-
-function HomeButton({ name, link, category }: HomeButtonsProps) {
-  return (
-    <Link href={link}>
-      <Button
-        border={category === "negative" ? "2px solid" : ""}
-        color={category === "positive" ? "white" : "black"}
-        bgColor={category === "positive" ? "black" : "white"}
-        size="lg"
-        _hover={{
-          bgColor: category === "positive" ? "white" : "black",
-          color: category === "positive" ? "black" : "white",
-          border: "2px solid"
-        }}
-      >
-        {name}
-      </Button>
-    </Link>
-  );
-}
-
 export default function Home() {
   return (
-    <Flex justifyContent="center" maxH="100vh" p="50px 150px" mt="30px">
+    <Flex justifyContent="center" p="50px 150px" mt="30px">
       <Stack mt="auto" gap={5} alignItems="center">
         <Text
           fontSize="6xl"
@@ -57,6 +31,25 @@ export default function Home() {
           />
           <HomeButton name="Learn More" link="/" category="negative" />
         </HStack>
+        <Flex flexFlow="wrap">
+          {text.home.cards.map((card, index) => (
+            <Box
+              key={index}
+              w="50%"
+              p="50px 80px"
+              _hover={{
+                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px"
+              }}
+            >
+              <HomeCard
+                title={card.title}
+                description={card.description}
+                imageLink={card.imageLink}
+                imageAlt={card.imageAlt}
+              />
+            </Box>
+          ))}
+        </Flex>
       </Stack>
     </Flex>
   );

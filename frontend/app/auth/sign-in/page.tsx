@@ -5,7 +5,7 @@ import FormLayout, {
   FormInput,
   FormLink,
   FormPasswordInput
-} from "@/components/forms/AuthForms";
+} from "@/app/auth/components";
 import { Box } from "@chakra-ui/react";
 import { useState } from "react";
 

@@ -5,14 +5,14 @@ import FormLayout, {
   FormButton,
   FormInput,
   Error
-} from "@/components/forms/AuthForms";
+} from "@/app/auth/components";
 import { generateVerificationCode, getFormData } from "@/utils";
 import { Collapse, useToast } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
-import Register from "./components/register";
-import ResetPassword from "./components/reset-password";
+import Register from "./components/auth-forms/register";
+import ResetPassword from "./components/auth-forms/reset-password";
 
 export default function Auth() {
   const toast = useToast();

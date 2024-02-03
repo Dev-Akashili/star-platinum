@@ -4,7 +4,7 @@ import {
   FormInput,
   FormLink,
   FormPasswordInput
-} from "@/components/forms/AuthForms";
+} from "@/app/auth/components";
 import { Stack, Text } from "@chakra-ui/react";
 import { useState } from "react";
 

@@ -3,7 +3,7 @@ import {
   FormButton,
   FormInput,
   FormPasswordInput
-} from "@/components/forms/AuthForms";
+} from "@/app/auth/components";
 import { useState } from "react";
 
 export default function ResetPassword() {
