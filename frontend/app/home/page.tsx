@@ -1,4 +1,37 @@
-import { Box, Button, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { text } from "@/data";
+import { Button, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { Metadata } from "next";
+import Link from "next/link";
+
+export const metadata: Metadata = {
+  title: "Star Platinum Auth"
+};
+
+interface HomeButtonsProps {
+  name: string;
+  link: string;
+  category: "positive" | "negative";
+}
+
+function HomeButton({ name, link, category }: HomeButtonsProps) {
+  return (
+    <Link href={link}>
+      <Button
+        border={category === "negative" ? "2px solid" : ""}
+        color={category === "positive" ? "white" : "black"}
+        bgColor={category === "positive" ? "black" : "white"}
+        size="lg"
+        _hover={{
+          bgColor: category === "positive" ? "white" : "black",
+          color: category === "positive" ? "black" : "white",
+          border: "2px solid"
+        }}
+      >
+        {name}
+      </Button>
+    </Link>
+  );
+}
 
 export default function Home() {
   return (
@@ -11,32 +44,18 @@ export default function Home() {
           w="100%"
           textAlign="center"
         >
-          Star Platinum Auth & User Management
+          {text.home.title}
         </Text>
         <Text fontSize="xl" color="grey" textAlign="center">
-          An open source software product that streamlines user authentication,
-          authorization, and management for developers. Built as a solution to
-          the hassle of building custom auth systems, by providing intuitive API
-          endpoints and a user-friendly interface which simplifies integration
-          and empowers you to focus on your core application.
+          {text.home.description}
         </Text>
         <HStack justifyContent="center" gap={5} mt="20px">
-          <Button
-            color="white"
-            bgColor="black"
-            size="lg"
-            _hover={{ bgColor: "white", color: "black", border: "2px solid" }}
-          >
-            Get Started
-          </Button>
-          <Button
-            border="2px solid"
-            size="lg"
-            bgColor="white"
-            _hover={{ bgColor: "black", color: "white" }}
-          >
-            Learn More
-          </Button>
+          <HomeButton
+            name="Get Started"
+            link="/auth/sign-in"
+            category="positive"
+          />
+          <HomeButton name="Learn More" link="/" category="negative" />
         </HStack>
       </Stack>
     </Flex>
