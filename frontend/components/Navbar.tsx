@@ -1,15 +1,31 @@
-import { Box, Button, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { relIcon } from "@/constants";
+import {
+  Box,
+  Button,
+  Flex,
+  HStack,
+  Image,
+  Text
+} from "@chakra-ui/react";
 import Link from "next/link";
 
 export default function Navbar() {
   return (
     <Box height="80px" backgroundColor="black">
       <Flex m="auto 20px" alignItems="center" height="100%">
-        <Link href="/">
-          <Text fontSize="3xl" fontWeight="bold" color="white">
-            STAR PLATINUM
-          </Text>
-        </Link>
+        <Image
+          src={relIcon}
+          alt="diamond"
+          h="30px"
+          w="30px"
+        />
+        <Box ml={3}>
+          <Link href="/">
+            <Text fontSize="3xl" fontWeight="bold" color="white">
+              STAR PLATINUM
+            </Text>
+          </Link>
+        </Box>
         <HStack ml="auto" gap={5}>
           <Link href="/">
             <Button
