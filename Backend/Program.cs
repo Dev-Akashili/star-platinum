@@ -1,7 +1,4 @@
 using Backend.Data;
-using Backend.Data.Entities.Identity;
-using Backend.Services;
-using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -30,15 +27,6 @@ builder.Services
 // Add Identity services to the container
 builder.Services.AddAuthorization();
 
-// Activate Identity APIs
-builder.Services.AddIdentityApiEndpoints<ApplicationUser>()
-    .AddEntityFrameworkStores<ApplicationDbContext>();
-
-builder.Services.AddScoped<UserManager<ApplicationUser>>();
-
-// Register services
-builder.Services.AddTransient<UserProfileService>();
-
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -51,9 +39,6 @@ if (app.Environment.IsDevelopment())
 app.UseHttpsRedirection();
 app.UseStaticFiles();
 app.UseRouting();
-
-// Map Identity routes
-app.MapGroup("/account").MapIdentityApi<ApplicationUser>();
 
 app.MapSwagger();
 

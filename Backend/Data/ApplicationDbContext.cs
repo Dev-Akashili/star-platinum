@@ -1,18 +1,13 @@
-using Backend.Data.Entities.Identity;
-using Backend.Data.Entities.User;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 
 namespace Backend.Data;
 
-public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
+public class ApplicationDbContext : IdentityDbContext
 {
     public ApplicationDbContext(DbContextOptions<ApplicationDbContext> options) :
-        base(options) { } 
-    
-    public DbSet<ApplicationUser> ApplicationUsers { get; set; } 
-    public DbSet<UserProfile> UserProfiles { get; set; }
-    
+        base(options) { }
+
     protected override void OnModelCreating(ModelBuilder builder)
     {
         base.OnModelCreating(builder);
