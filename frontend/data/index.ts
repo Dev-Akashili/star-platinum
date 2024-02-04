@@ -35,3 +35,10 @@ export const text = {
     ]
   }
 };
+
+export const links = {
+  github: "https://github.com/Dev-Akashili",
+  org: "https://github.com/Star-Platinum-Auth/star-platinum",
+  linkedin:"https://www.linkedin.com/in/akashili/",
+  mail: "https://mailto:chukwuemeka.akashili@gmail.com"
+};

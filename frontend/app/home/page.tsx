@@ -1,5 +1,5 @@
 import { text } from "@/data";
-import { Box, Flex, HStack, Stack, Text } from "@chakra-ui/react";
+import { Flex, HStack, Stack, Text } from "@chakra-ui/react";
 import { Metadata } from "next";
 import HomeCard, { HomeButton } from "./components";
 
@@ -9,25 +9,21 @@ export const metadata: Metadata = {
 
 export default function Home() {
   return (
-    <Flex
-      justifyContent="center"
-      p={{ base: "20px 0px", lg: "50px 150px" }}
-      mt={{ base: "0px", lg: "30px" }}
-    >
+    <Flex justifyContent="center" p={{ base: "40px 0px", lg: "50px 150px" }}>
       <Stack mt="auto" gap={5} alignItems="center">
         <Text
-          fontSize={{ base: "5xl", lg: "6xl" }}
+          fontSize={{ base: "40px", lg: "6xl" }}
           fontWeight="bold"
-          m="20px"
           w={{ base: "95%", lg: "100%" }}
           textAlign="center"
         >
           {text.home.title}
         </Text>
         <Text
-          fontSize={{ base: "lg", lg: "xl" }}
+          fontSize={{ base: "17px", lg: "xl" }}
           color="grey"
           textAlign="center"
+          w={{ base: "95%", lg: "100%" }}
         >
           {text.home.description}
         </Text>
