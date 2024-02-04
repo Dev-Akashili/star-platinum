@@ -1,4 +1,4 @@
-import { Button, Image, Stack, Text } from "@chakra-ui/react";
+import { Box, Button, Image, Stack, Text } from "@chakra-ui/react";
 import Link from "next/link";
 
 interface HomeButtonsProps {
@@ -41,18 +41,23 @@ export default function HomeCard({
   imageAlt
 }: HomeCardProps) {
   return (
-    <Stack
-      alignItems="center"
-      gap={5}
-      m="auto"
+    <Box
+      w={{ base: "95%", lg: "50%" }}
+      p={{ base: "30px 50px", lg: "50px 80px" }}
+      _hover={{
+        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
+        borderRadius: "10px"
+      }}
     >
-      <Image h="35px" w="35px" src={imageLink} alt={imageAlt} />
-      <Text fontWeight="bold" fontSize="lg">
-        {title}
-      </Text>
-      <Text fontSize="md" color="grey" textAlign="center">
-        {description}
-      </Text>
-    </Stack>
+      <Stack alignItems="center" gap={5} m="auto">
+        <Image h="35px" w="35px" src={imageLink} alt={imageAlt} />
+        <Text fontWeight="bold" fontSize="lg">
+          {title}
+        </Text>
+        <Text fontSize="md" color="grey" textAlign="center">
+          {description}
+        </Text>
+      </Stack>
+    </Box>
   );
 }
