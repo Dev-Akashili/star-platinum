@@ -45,22 +45,13 @@ export default function Home() {
           mt={{ base: "25px", lg: "0px" }}
         >
           {text.home.cards.map((card, index) => (
-            <Box
+            <HomeCard
               key={index}
-              w={{ base: "95%", lg: "50%" }}
-              p={{ base: "30px 50px", lg: "50px 80px" }}
-              _hover={{
-                boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-                borderRadius: "10px"
-              }}
-            >
-              <HomeCard
-                title={card.title}
-                description={card.description}
-                imageLink={card.imageLink}
-                imageAlt={card.imageAlt}
-              />
-            </Box>
+              title={card.title}
+              description={card.description}
+              imageLink={card.imageLink}
+              imageAlt={card.imageAlt}
+            />
           ))}
         </Flex>
       </Stack>
