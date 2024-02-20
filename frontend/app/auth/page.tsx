@@ -7,7 +7,7 @@ import FormLayout, {
   Error
 } from "@/app/auth/components";
 import { generateVerificationCode, getFormData } from "@/utils";
-import { Collapse, useToast } from "@chakra-ui/react";
+import { Box, Collapse, useToast } from "@chakra-ui/react";
 import emailjs from "@emailjs/browser";
 import { useSearchParams } from "next/navigation";
 import { useState } from "react";
@@ -68,35 +68,38 @@ export default function Auth() {
   }
 
   return (
-    <FormLayout
-      name={
-        authPage === "register"
-          ? "Register"
-          : authPage === "reset-password"
-          ? "Reset Password"
-          : ""
-      }
-    >
-      {isEmailVerified ? (
-        <form onSubmit={handleEmailVerification}>
-          <Collapse in={show} animateOpacity>
-            <FormAlert />
-          </Collapse>
-          <FormInput
-            isRequired={true}
-            label="Verify Email"
-            name="email"
-            type="email"
-          />
-          <FormButton name="Continue" isLoading={isLoading} />
-        </form>
-      ) : authPage === "register" ? (
-        <Register />
-      ) : authPage === "reset-password" ? (
-        <ResetPassword />
-      ) : (
-        <Error />
-      )}
-    </FormLayout>
+    <Box p={authPage === "register" ? { base: "0 35px", md: 0, lg: 0 } : 0}>
+      <FormLayout
+        name={
+          authPage === "register"
+            ? "Register"
+            : authPage === "reset-password"
+            ? "Reset Password"
+            : ""
+        }
+        isEmailVerified={isEmailVerified}
+      >
+        {!isEmailVerified ? (
+          <form onSubmit={handleEmailVerification}>
+            <Collapse in={show} animateOpacity>
+              <FormAlert />
+            </Collapse>
+            <FormInput
+              isRequired={true}
+              label="Verify Email"
+              name="email"
+              type="email"
+            />
+            <FormButton name="Continue" isLoading={isLoading} />
+          </form>
+        ) : authPage === "register" ? (
+          <Register />
+        ) : authPage === "reset-password" ? (
+          <ResetPassword />
+        ) : (
+          <Error />
+        )}
+      </FormLayout>
+    </Box>
   );
 }

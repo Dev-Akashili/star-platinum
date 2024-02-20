@@ -42,19 +42,22 @@ export default function HomeCard({
 }: HomeCardProps) {
   return (
     <Box
-      w={{ base: "95%", lg: "50%" }}
-      p={{ base: "30px 50px", lg: "50px 80px" }}
-      _hover={{
-        boxShadow: "rgba(0, 0, 0, 0.35) 0px 5px 15px",
-        borderRadius: "10px"
-      }}
+      w={{ base: "100%", lg: "50%" }}
+      p={{ base: "30px 0px", lg: "30px 80px" }}
     >
       <Stack alignItems="center" gap={5} m="auto">
         <Image h="35px" w="35px" src={imageLink} alt={imageAlt} />
-        <Text fontWeight="bold" fontSize="lg">
+        <Text
+          fontWeight="bold"
+          fontSize={{ base: "18px", md: "20px", lg: "20px" }}
+        >
           {title}
         </Text>
-        <Text fontSize="md" color="grey" textAlign="center">
+        <Text
+          fontSize={{ base: "16px", md: "18px", lg: "18px" }}
+          color="grey"
+          textAlign="center"
+        >
           {description}
         </Text>
       </Stack>

@@ -101,13 +101,24 @@ export function FormButton({ name, isLoading }: FormButtonProps) {
 }
 
 interface FormLayoutProps {
-  children: React.ReactNode;
   name: string;
+  isEmailVerified: boolean;
+  children: React.ReactNode;
 }
 
-export default function FormLayout({ children, name }: FormLayoutProps) {
+export default function FormLayout({
+  name,
+  isEmailVerified,
+  children
+}: FormLayoutProps) {
   return (
-    <Flex justify="center" align="center" minH="100vh" p="50px 0px">
+    <Flex
+      justify="center"
+      align="center"
+      minH="100vh"
+      p="50px 0px"
+      m={name === "Register" && isEmailVerified ? "100px 0 150px 0" : 0}
+    >
       <Box p="20px" border="2px solid black" borderRadius="0px">
         <Text fontSize="3xl" fontWeight="bold" mb="20px" align="center">
           {name}

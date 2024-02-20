@@ -1,2 +1,1 @@
-export const relIcon =
-  "https://img.icons8.com/external-prettycons-flat-prettycons/47/external-diamond-essentials-prettycons-flat-prettycons.png";
+export const relIcon = "https://img.icons8.com/fluency/96/ruby-gemstone.png";

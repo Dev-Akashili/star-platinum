@@ -28,3 +28,22 @@ export function PageBtn({
     </Link>
   );
 }
+
+interface PageIconProps {
+  link: string;
+  imageLink: string;
+  imageAlt: string;
+}
+
+export function PageIcon({ link, imageLink, imageAlt }: PageIconProps) {
+  return (
+    <Link href={link} target="_blank">
+      <Image
+        src={imageLink}
+        alt={imageAlt}
+        h={{ base: "18px", lg: "25px" }}
+        w={{ base: "18px", lg: "25px" }}
+      />
+    </Link>
+  );
+}
