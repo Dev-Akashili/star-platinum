@@ -1,7 +1,6 @@
 "use client";
 import {
   FormButton,
-  FormInput,
   FormPasswordInput
 } from "@/app/auth/components";
 import { useState } from "react";
@@ -13,12 +12,6 @@ export default function ResetPassword() {
 
   return (
     <>
-      <FormInput
-        isRequired={true}
-        label="Verification Code"
-        name="code"
-        type="text"
-      />
       <FormPasswordInput
         isRequired={true}
         label="New Password"

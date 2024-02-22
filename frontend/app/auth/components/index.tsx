@@ -19,7 +19,12 @@ interface FormInputProps {
   type: string;
 }
 
-export function FormInput({ isRequired, label, name, type }: FormInputProps) {
+export function FormInput({
+  isRequired,
+  label,
+  name,
+  type,
+}: FormInputProps) {
   return (
     <FormControl isRequired={isRequired} m="10px 0px">
       <FormLabel>{label}</FormLabel>
@@ -129,7 +134,11 @@ export default function FormLayout({
   );
 }
 
-export function FormAlert() {
+interface FormAlertProps {
+  message: string;
+}
+
+export function FormAlert({ message }: FormAlertProps) {
   return (
     <Box
       m="10px 0px"
@@ -143,7 +152,7 @@ export function FormAlert() {
       <Flex ml="10px" gap={2}>
         <AlertCircle />
         <Text as="b" fontSize="sm">
-          Something went wrong
+          {message}
         </Text>
       </Flex>
     </Box>

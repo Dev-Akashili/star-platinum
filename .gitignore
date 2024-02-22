@@ -56,3 +56,4 @@ bld/
 StyleCopReport.xml
 
 .idea
+Backend/appsettings.Development.json

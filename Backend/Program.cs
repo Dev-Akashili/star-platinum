@@ -1,4 +1,6 @@
 using Backend.Data;
+using Backend.Services.Contracts;
+using Backend.Services.EmailServices;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -27,6 +29,20 @@ builder.Services
 // Add Identity services to the container
 builder.Services.AddAuthorization();
 
+// Add services
+builder.Services.AddTransient<IEmailService, EmailService>();
+
+// Configure Cors
+builder.Services.AddCors(options =>
+{
+    options.AddPolicy("default", policy =>
+    {
+        policy.WithOrigins("http://localhost:3000")
+            .AllowAnyHeader()
+            .AllowAnyMethod();
+    });
+});
+
 var app = builder.Build();
 
 // Configure the HTTP request pipeline.
@@ -38,6 +54,10 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();
+
+// Add Cors
+app.UseCors("default");
+
 app.UseRouting();
 
 app.MapSwagger();

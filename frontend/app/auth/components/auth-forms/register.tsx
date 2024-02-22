@@ -15,12 +15,6 @@ export default function Register() {
 
   return (
     <>
-      <FormInput
-        isRequired={true}
-        label="Verification Code"
-        name="code"
-        type="text"
-      />
       <Stack direction="row" gap={2}>
         <FormInput
           isRequired={true}
