@@ -35,9 +35,9 @@ builder.Services.AddTransient<IEmailService, EmailService>();
 // Configure Cors
 builder.Services.AddCors(options =>
 {
-    options.AddPolicy("default", policy =>
+    options.AddDefaultPolicy(policy =>
     {
-        policy.WithOrigins("http://localhost:3000")
+        policy.AllowAnyOrigin()
             .AllowAnyHeader()
             .AllowAnyMethod();
     });
@@ -56,7 +56,7 @@ app.UseHttpsRedirection();
 app.UseStaticFiles();
 
 // Add Cors
-app.UseCors("default");
+app.UseCors();
 
 app.UseRouting();
 
