@@ -26,17 +26,6 @@ This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next
 
 The frontend app can be configured in any standard way an Node application can. Typically from the Azure Portal (Environment variables) or an `.env.local`.
 
-## Email Verification
-
-EmailJS is integrated to handle sending emails for email verification. Make sure to configure your EmailJS account credentials in the appropriate configuration files.
-
-```bash
-NEXT_PUBLIC_EMAIL_SERVICE_ID=changeme
-NEXT_PUBLIC_EMAIL_TEMPLATE_ID=changeme
-NEXT_PUBLIC_EMAIL_PUBLIC_KEY=changeme
-```
-Read more here: https://www.emailjs.com/docs/
-
 # Backend
 
 ## Database setup
@@ -63,6 +52,16 @@ The easiest way is using the dotnet cli:
 ## App Configuration
 
 The backend app can be configured in any standard way an ASP.NET Core application can. Typically from the Azure Portal (Environment variables) or an `appsettings.json`.
+
+## Email Verification
+
+Email verification code is being sent using SMTP server. This can be configured in the `appsettings.Development.json` by including the required values.
+
+```bash
+"EmailHost": "changeme",
+"EmailUsername": "changeme",
+"EmailPassword": "changeme",
+```
 
 ## Running the repository
 
